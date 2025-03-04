@@ -2,7 +2,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /*
-* I assumed that we are not allowed to use any external library for data structures or BigInteger like bitset and ArrayList
+* I do not use any external libraries or data structures such as bitset or arraylist in this program.
 * */
 public class FinalProject_21097305d_SunghakHeo {
     /*
@@ -12,7 +12,7 @@ public class FinalProject_21097305d_SunghakHeo {
     * */
     static final int PARTITION = 1000000;
     static final int ARRAY_SIZE = 100000000;
-    static final int ARBITRARY_INT_THRESHOLD = 2000000000; //20억
+    static final int ARBITRARY_INT_THRESHOLD = 2000000000; // 2b
 
     /*
      * intCounter: number of integer primes
@@ -75,7 +75,6 @@ public class FinalProject_21097305d_SunghakHeo {
             if (start < lo) {
                 start = ((lo + (p - 1)) / p) * (long) p;
             }
-            //int start = (lo%p==0) ? lo : (lo/p+1)*p;
             int j = (int)(start-lo);
             for (; j < n; j+=p) {
                 isNotPrime[j] = true;
@@ -111,7 +110,6 @@ public class FinalProject_21097305d_SunghakHeo {
             if ((long)p*p > hi) break;
             long start = (long) p*p;
             if (start < lo) start = ((lo + (p - 1)) / p) * (long) p;
-            //long start = (lo%p==0) ? lo : (lo/p+1)*p;
             int j = (int)(start-lo);
             for (; j < n; j+=p) {
                 isNotPrime[j] = true;
@@ -141,24 +139,6 @@ public class FinalProject_21097305d_SunghakHeo {
                 getIntPrimes(fileName, (int)limit-PARTITION+1, (int)limit);
             }
             else {
-                // Check two conditions before applying the sieve for big numbers:
-                // 1. maxPrime^2 (square of the largest known prime) must not exceed the maximum range of the long type.
-                // 2. The lower bound of the current range (limit - PARTITION + 1) must not exceed maxPrime^2.
-//                long maxPrime = smallPrimes[intCounter - 1]; //biggest prime from getIntPrimes.
-//                long maxPrimeSquared;
-//
-//                if (maxPrime > Math.sqrt(Long.MAX_VALUE)) {
-//                    System.err.println("Cannot use sieve: maxPrime^2 exceeds long range.");
-//                    break;
-//                }
-//
-//                maxPrimeSquared = maxPrime * maxPrime;
-//
-//                if (limit - PARTITION + 1 >= maxPrimeSquared) {
-//                    System.err.println("Cannot use sieve: limit range exceeds maxPrime^2.");
-//                    break;
-//                }
-
                 writePrimesToFile(fileName, limit - PARTITION + 1, limit);
             }
         }
