@@ -4,7 +4,7 @@ import java.io.IOException;
 /*
 * I do not use any external libraries or data structures such as bitset or arraylist in this program.
 * */
-public class FinalProject_21097305d_SunghakHeo {
+public class LargePrimeGenerator {
     /*
     * PARTITION: set the range of numbers to get primes step by step.
     * ARRAY_SIZE: set the size of arrays.
